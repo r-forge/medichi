@@ -116,15 +116,16 @@ data( "halo.lowres", package="MeDiChI" )
 ## Deconvolve all three replicons: "Chr", "pNRC100", "pNRC200". Note
 ## this will take a while to run.
 
-## Not run:
-## fits <- deconv.entire.genome( data.halo.lowres, fit.res=30,
-##               n.boot=1, kernel=kernel.halo.lowres, verbose=FALSE, trace=FALSE )
+\dontrun{
+fits <- deconv.entire.genome( data.halo.lowres, fit.res=30,
+               n.boot=1, kernel=kernel.halo.lowres, verbose=FALSE, trace=FALSE )
 
 ## Plot the entire fit, across many windows:
-## plot( fits )
+plot( fits )
 
 ## Plot a piece of the finished product on just the chromosome:
-## plot( fits\$fits.fin\$Chr, center=20000, wind=10000 )
+plot( fits$fits.fin$Chr, center=20000, wind=10000 )
+}
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

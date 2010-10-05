@@ -101,15 +101,16 @@ plot.fit.peak.profile(x, n.peak.plot = 7, plot.spline = F, ...)
   ## plotting progress. Note this will take some time.
   data( "halo.hires", package="MeDiChI" )
 
-  ## Not run:
-  ## params <- fit.peak.profile( data.halo.hires, tile.size=50, 
-  ##                           quant.cutoff="q0.99", chrom="Chr",
-  ##                           fit.res=30, max.steps=100, plot=TRUE )
-  ## plot( params )
+\dontrun{
+   params <- fit.peak.profile( data.halo.hires, tile.size=50, 
+                             quant.cutoff="q0.99", chrom="Chr",
+                             fit.res=30, max.steps=100, plot=TRUE )
+   plot( params )
 
   ## Use the output kernel for deconvolution (see 'deconv.entire.genome'):
-  ## fits <- deconv.entire.genome( data.halo.lowres, fit.res=10,
-  ##              n.boot=1, kernel=params\$kernel, verbose=TRUE, trace=FALSE )
+   fits <- deconv.entire.genome( data.halo.lowres, fit.res=10,
+                n.boot=1, kernel=params\$kernel, verbose=TRUE, trace=FALSE )
+}
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

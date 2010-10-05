@@ -81,6 +81,8 @@ function (data, where = NA, center = NA, window = 30000, fit.res = 10,
     if (!any(y >= quant.cutoff)) 
         return(NULL)
     if (is.na(tile.distance)) {
+        if (is.null(rownames(data))) 
+            rownames(data) <- rep("X1", nrow(data))
         tmp.posns <- sort(data[, 1])
         tile.distances <- numeric()
         for (i in unique(names(tmp.posns))) tile.distances <- c(tile.distances, 
@@ -634,8 +636,13 @@ function (data, chroms = NA, window = 6000, step.by = 5500, centers = NULL,
         if (is.parallel) 
             is.parallel <- multicore:::detectCores(all.tests = TRUE) > 
                 1
-        if (is.parallel) 
-            apply.func <- mclapply
+        if (is.parallel) {
+            require(doMC)
+            apply.func <- function(list, FUN, ...) foreach(l = list) %dopar% 
+                {
+                  FUN(l, ...)
+                }
+        }
         if (is.parallel && !quiet) 
             cat("Parallelizing deconvoluton of", where, "over", 
                 multicore:::detectCores(all.tests = TRUE), "processor cores.\n")
@@ -1062,8 +1069,13 @@ function (fragment.distrib = function(x, ...) dgamma(x, shape = 6,
     if (is.parallel) 
         is.parallel <- multicore:::detectCores(all.tests = TRUE) > 
             1
-    if (is.parallel) 
-        apply.func <- mclapply
+    if (is.parallel) {
+        require(doMC)
+        apply.func <- function(list, FUN, ...) foreach(l = list) %dopar% 
+            {
+                FUN(l, ...)
+            }
+    }
     if (is.parallel && verbose) 
         cat("Parallelizing generation of binding profile over", 
             multicore:::detectCores(all.tests = TRUE), "processor cores.\n")
@@ -2214,11 +2226,12 @@ function (xnew, R = NULL, xold, eps = .Machine$double.eps, Gram = FALSE)
     R
 }
 .onLoad <-
-function( libname, pkgname ) { ##.onAttach
-    cat( "Loading MeDiChI, version ", VERSION, " (", DATE, ")\n", sep="" )
-  }
-
+function (libname, pkgname) 
+{
+    cat("Loading MeDiChI, version ", VERSION, " (", DATE, ")\n", 
+        sep = "")
+}
 VERSION <-
-"0.3.5"
+"0.3.8"
 DATE <-
-"Mon Apr 12 10:09:15 2010"
+"Tue Oct  5 15:58:55 2010"
