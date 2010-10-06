@@ -10,7 +10,7 @@
 
 \usepackage[authoryear,round]{natbib}
 \usepackage{times}
-\usepackage{comment}
+%\usepackage{comment}
 
 \textwidth=6.2in
 \textheight=8.5in
