@@ -2,7 +2,7 @@ Package: MeDiChI
 Type: Package
 Title: MeDiChI ChIP-chip deconvolution library
 Version: 0.3.9
-Date: Oct  13:47:24
+Date: Oct  14:27:08
 Author: David J Reiss
 Maintainer: David J Reiss <dreiss@systemsbiology.org>
 Description: Model-based deconvolution of genome-wide binding (ChIP-chip) data

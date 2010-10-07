@@ -188,9 +188,13 @@ This results in something like this for the above example:
 
 \includegraphics[angle=0]{peakprofile.png}
 
-{\tt{peak.params$kernel}} may be used as a kernel for more accurate
-deconvolution {\tt{chip.deconv()}} or {\tt{deconv.entire.genome()}} as
-in the previous two examples.
+<<GetKernel, eval=FALSE, echo=TRUE>>=
+peak.params$kernel
+@ 
+
+may be used as a kernel for more accurate deconvolution
+{\tt{chip.deconv()}} or {\tt{deconv.entire.genome()}} as in the
+previous two examples.
 
 \section{For More Information}
 

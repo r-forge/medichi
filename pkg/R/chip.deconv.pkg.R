@@ -2233,4 +2233,4 @@ function( libname, pkgname ) { ##.onAttach
 VERSION <-
 "0.3.9"
 DATE <-
-"Wed Oct  6 13:46:32 2010"
+"Thu Oct  7 14:25:52 2010"
