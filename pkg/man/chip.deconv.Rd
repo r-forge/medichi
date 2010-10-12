@@ -13,19 +13,19 @@
 }
 \usage{
 chip.deconv(data, where = NA, center = NA, 
-window = 30000, fit.res = 30, max.steps = 200, 
+window = 30000, fit.res = 10, max.steps = 200, 
 post.proc.factor = 2, min.npeaks = 0, max.npeaks = 99999,
 selection.method = "bic", quant.cutoff = "q0.85", 
-n.boot = 1, boot.sample.opt = c("case","wild","residual","resample",
+n.boot = 1, boot.sample.opt = c("residual","resample","case","wild",
 "position","replicate")[1], max.peak = NA, boot.vary.res = F,
-kernel = NA, tile.distance = NA, verbose = T, trace = F, no.multicore =
-F, ...)
+kernel = NA, tile.distance = NA, verbose = T, trace = F, ...)
 %% cluster.nodes = NA, plot.status = F, ls.final.do = T, interp = T, plot.boot = F, 
 
 plot.chip.deconv(x, boot.results = c("scaled.prob", "prob", "scale",
 "conf=95", "NONE")[1], where = NA, center = NA, window = NULL, verbose = F,
 plot.genes = F, org = NA, hi.res = NA, quants = c(0.95, 0.5, 0.05), 
-smooth = T, pch=20, cex=0.5, ...)
+smooth = T, ... )
+%%pch=20, cex=0.5, ...)
 %%scale.boot.results = NA, 
 
 print.chip.deconv(x, ...)
@@ -84,8 +84,8 @@ coef.chip.deconv(object, ...)
   %%  'quantile.cutoff', and BIC and AIC curves).}
   \item{verbose}{If TRUE, print out status messages.}
   \item{trace}{If TRUE, print out LARS progress.}
-  \item{no.multicore}{If TRUE, prevent parallelizatin of bootstraps to
-    multiple processor cores.}
+%%  \item{no.multicore}{If TRUE, prevent parallelizatin of bootstraps to
+%%    multiple processor cores.}
 
   \item{x}{Object output from 'chip.deconv()'}
   \item{object}{Object output from 'chip.deconv()'}
@@ -107,9 +107,8 @@ coef.chip.deconv(object, ...)
     resolution. Default is 'fit.res' as provided to 'chip.deconv()'.}
   \item{smooth}{If TRUE, plot kernel-smoothed bootstrap distributions, rather
     than simple counts.}
-  \item{pch}{Plot character. See 'par'.}
-  \item{cex}{Plot character size. See 'par'.}
-  
+%%  \item{pch}{Plot character. See 'par'.}
+%%  \item{cex}{Plot character size. See 'par'.}
   \item{\dots}{Additional parameters passed to 'lars' or 'plot' or
     'read.table' (if the 'data' parameter is a file name).}
 }
@@ -178,8 +177,8 @@ coef.chip.deconv(object, ...)
   parameters for this model may be learned from the data using
   'fit.peak.profile'.\cr
 
-  'chip.deconv distributes the processing of multiple bootstraps
-  to multiple processor cores, unless 'no.multicore' is set to FALSE.
+%%  'chip.deconv distributes the processing of multiple bootstraps
+%%  to multiple processor cores, unless 'no.multicore' is set to FALSE.
   
 %%  'cluster.nodes' is a list of cluster node names to distribute the
 %%  bootstrap runs on. For example to distribute on a single quad-core

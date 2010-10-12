@@ -2226,11 +2226,12 @@ function (xnew, R = NULL, xold, eps = .Machine$double.eps, Gram = FALSE)
     R
 }
 .onLoad <-
-function( libname, pkgname ) { ##.onAttach
-    cat( "Loading MeDiChI, version ", VERSION, " (", DATE, ")\n", sep="" )
-  }
-
+function (libname, pkgname) 
+{
+    cat("Loading MeDiChI, version ", VERSION, " (", DATE, ")\n", 
+        sep = "")
+}
 VERSION <-
 "0.4.0"
 DATE <-
-"Fri Oct  8 11:32:01 2010"
+"Tue Oct 12 11:20:57 2010"

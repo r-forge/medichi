@@ -7,7 +7,11 @@
   Construct a model-based binding profile as described in Reference (1).
 }
 \usage{
-generate.binding.profile(fragment.distrib = function(x, ...) dgamma(x, shape = 6, scale = 50), bs.size = 1, tile.size = 50, min.frag.size = 0, positions = seq(0, 1001, by = 50), intensity.scaling = function(x, ...) x, hybridization.prob = function(x, ...) as.integer(x > 10), interp = T, plot = F, verbose = F, ...)
+generate.binding.profile(fragment.distrib = function(x, ...) dgamma(x,
+shape = 6, scale = 50), bs.size = 1, tile.size = 50, min.frag.size = 0,
+positions = seq(0, 1001, by = 50), intensity.scaling = function(x, ...)
+x, hybridization.prob = function(x, ...) as.integer(x > 10), interp = T,
+plot = F, verbose = F, no.multicore=T, ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -27,6 +31,8 @@ generate.binding.profile(fragment.distrib = function(x, ...) dgamma(x, shape = 6
   those listed in 'positions'.}
   \item{plot}{If TRUE, plot the resulting profile.}
   \item{verbose}{If TRUE, be verbose.}
+  \item{no.multicore}{Prevent use of multiple cores, even if 'multicore'
+  is installed.}  
 %  \item{kernel.method}{If 'mine' (the default), use the model described
 %    in Reference (1); if 'jbd', use the method described in Reference (2). }
   \item{\dots}{Further parameters for 'fragment.distrib',

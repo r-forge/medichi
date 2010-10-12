@@ -6,7 +6,10 @@
   Generate simulated ChIP-chip data, as described in Reference (1).
 }
 \usage{
-generate.fake.data(posns = seq(1, 6001, by = 20), n.pts = 5, noise = 0.1, min.pk = 0.1, plot = F, verbose = F, in.pts = NULL, kernel = NULL, tile.size = 100, reps = 1, ...)
+generate.fake.data(posns = seq(1, 6001, by = 20), n.pts = 5, noise =
+0.1, min.pk = 0.1, plot = F, verbose = F, in.pts = NULL, kernel = NULL,
+tile.size = 100, reps = 1,
+noise.func = function(data)noise*(1+sqrt(data)), ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -21,6 +24,8 @@ generate.fake.data(posns = seq(1, 6001, by = 20), n.pts = 5, noise = 0.1, min.pk
   \item{kernel}{Input peak profile to use.}
   \item{tile.size}{Input probe length (used to generate peak profile
     kernel if 'kernel' is 'NULL')}
+  \item{noise.func}{Function used to generate noise as a function of
+    signal intensity}
   \item{reps}{Number of replicate intensities per simulated probe}
   \item{\dots}{Further parameters for 'generate.binding.profile' (if
     'kernel' is 'NULL')}

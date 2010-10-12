@@ -15,7 +15,7 @@
 \usage{
 deconv.entire.genome(data, chroms=NA, window=6000, step.by=5500,
 centers=NULL, quiet=F, plot=F, n.boot=1, fit.res=10, quant.cutoff="q0.85",
-max.peak=NA, verbose=F, kernel=NA, no.multicore=F, ... )
+max.peak=NA, verbose=F, kernel=NA, no.multicore=T, ... )
 
 print.chip.deconv.entire.genome(x, ...)
 
@@ -78,7 +78,7 @@ coef.chip.deconv.entire.genome(object, ...)
 
   'deconv.entire.genome' distributes the processing of multiple sections of
   the chromosome to multiple processor cores, unless 'no.multicore' is
-  set to FALSE.
+  set to TRUE.
 
   'plot.chip.deconv.entire.genome' will, by default, plot the entire fit
   across all chromosomes, via multiple plots, in chunks of size

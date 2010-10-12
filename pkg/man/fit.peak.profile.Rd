@@ -10,10 +10,11 @@
 }
 \usage{
 fit.peak.profile(data, tile.size, n.peaks = 30, n.skip = 10, in.kernel =
-NA, fits = NULL, method = "Nelder-Mead", positions = c(0, 25, 50, 100,
-150, seq(200, 1001, by = 100)), re.fit = 25, start.pars = c(shape = 7,
-scale = 50, bs.size = 20, h.cutoff = 15), to.be.fit=c( "shape", "scale",
-"bs.size", "h.cutoff" ), rnd = F, mini.window = max(5 * tile.size, 1300), plot = T, name = "", ...)
+NA, fits = NULL, method = "Nelder-Mead", positions=c( 0, 25, 50, 100,
+150, seq( 200, (mini.window*1.5)+1, by=100 ) ), re.fit = 25, start.pars
+= c(shape = 7, scale = 50, bs.size = 20, h.cutoff = 15), to.be.fit=c(
+"shape", "scale", "bs.size", "h.cutoff" ), rnd = F, mini.window = max(5
+* tile.size, 1300), plot = T, name = "", no.multicore=T, ...)
 
 plot.fit.peak.profile(x, n.peak.plot = 7, plot.spline = F, ...)
 }
@@ -41,6 +42,8 @@ plot.fit.peak.profile(x, n.peak.plot = 7, plot.spline = F, ...)
     several bright peaks in the data)}
   \item{mini.window}{Size of window to be plotted around each of the
     bright peaks, if 'plot' is TRUE}
+  \item{no.multicore}{Prevent use of multiple cores, even if 'multicore'
+  is installed.}  
   \item{name}{Ignored}
   \item{\dots}{Further parameters for 'deconv.entire.genome' and 'generate.binding.profile'}
 
